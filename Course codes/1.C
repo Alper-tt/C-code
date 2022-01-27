@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main() {
 	
-	printf("selam balim \n");
+	printf("selam canim \n");
 	printf("as \n");
 	int a1 = 42;
 	char b1 = 66;
