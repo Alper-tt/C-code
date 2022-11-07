@@ -5,6 +5,8 @@ struct n
 {
     int x;
     struct n *next;
+    struct n *prev;
+    
 };
 
 typedef struct n node;
@@ -26,25 +28,32 @@ void ekle(node *r, int x)
         r = r->next;
     }
     r->next = (node *)malloc(sizeof(node));
+    r->next->prev =r;
     r->next->x = x;
     r->next->next = NULL;
 }
 
-void ekleSirali(node *r, int x)
-{
-    if (r = NULL)
-    {
-        r = (node *)malloc(sizeof(node));
-        r->next = NULL;
-        r->x = x;
-    } 
+void sil(node *r, int x){
+    node * temp = r;
+
+    while(r->next->x != x ){
+        r = r ->next;
+        temp = r->next->next;
+    }
+
+    free(r->next);
+    r->next = temp;
+    temp->prev =r;
+
 }
+
 
 int main()
 {
     node *root;
     root = (node *)malloc(sizeof(node));
     root->next = NULL;
+    root->prev = NULL;
     root->x = 2;
     int i = 0;
     for (i = 0; i < 5; i++)
@@ -52,16 +61,7 @@ int main()
         ekle(root, i * 10);
     }
 
-    node *iter = root;
-
-    for (i = 0; i < 3; i++)
-    {
-        iter = iter->next;
-    }
-    node *temp = (node *)malloc(sizeof(node));
-    temp->next;
-    temp->next = iter->next;
-    iter->next = temp;
-    temp->x = 100;
+    bastir(root);
+    sil(root, 10);
     bastir(root);
 }
