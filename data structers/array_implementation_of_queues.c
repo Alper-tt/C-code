@@ -3,13 +3,7 @@
 
 #define QUEUE_SIZE 10
 
-struct n
-{
-    int data;
-    struct n *next;
-};
 
-typedef struct n node;
 
 typedef struct
 {
@@ -45,8 +39,8 @@ int isFull(queue *q)
 void initialize(queue *q)
 {
     q->cnt = 0;
-    q->front = -1;
-    q->rear = 0;
+    q->front = 0;
+    q->rear = -1;
 }
 
 void enqueue(queue *q, int x)
@@ -72,7 +66,7 @@ int dequeue(queue *q)
 
     if (isEmpty(q))
     {
-        printf("Queue is emty");
+        printf("Queue is empty");
         return -1;
     }
     else
@@ -105,8 +99,9 @@ int main()
     enqueue(&q, 6);
     enqueue(&q, 7);
     dequeue(&q);
-    dequeue(&q);
-    dequeue(&q);
+
+
+
 
     display(&q);
 }

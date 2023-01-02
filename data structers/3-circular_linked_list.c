@@ -58,8 +58,11 @@ int main()
     for(int i=0;i<5;i++){
         ekle(root,i*10);
     }
-    bastir(root);
+    /*bastir(root);
     sil(root, 40);
+    bastir(root);*/
+    bastir(root);
+    ekle(root,50);
     bastir(root);
 
 }

@@ -59,7 +59,6 @@ int main()
         iter = iter->next;
     }
     node *temp = (node *)malloc(sizeof(node));
-    temp->next;
     temp->next = iter->next;
     iter->next = temp;
     temp->x = 100;
